@@ -64,7 +64,7 @@ echo("<div class=\"hoelaat\"><em>Het is nu " . $nu2 . " uur</em></div>\n");
 <?php	
 // In principe hoef je dit script niet te veranderen!
 // Zoek je haltenummers op www.ovradar.nl
-// Plak de haltenummers als volgt aan de url (inclusief het vraagteken):?quay1=32002649&quay2=32002650
+// Plak de haltenummers als volgt aan de url(inclusief het vraagteken):?quay1=32002649&quay2=32002650
 // Pompiedom!
 
 $quay1 = htmlspecialchars($_GET["quay1"]);
@@ -123,9 +123,9 @@ function toonZe($alleinfo, $richting) {
 		// Toon alle voertuigen die binnen 3 kwartier komen
 		if($verschil <= 45) {
 			if ($verschil == 0) {
-			echo("<li>Lijn " .$row[LinePublicNumber] . " komt <strong>NU!</strong></li>");
+			echo("<li>Lijn " .$row[LinePublicNumber] . " naar " . $row[DestinationName50] . " komt <strong>NU!</strong></li>");
 			} else if ($verschil == 1) {
-			echo("<li>Lijn " .$row[LinePublicNumber] . " komt over ongeveer 1 minuut. Rennen!</em></li>\n");
+			echo("<li>Lijn " .$row[LinePublicNumber] . " naar " . $row[DestinationName50] . " komt over ongeveer 1 minuut. Rennen!</em></li>\n");
 			} else {
 				echo("<li>Lijn " .$row[LinePublicNumber] . " naar " . $row[DestinationName50] . " komt over " . $verschil . "</strong> minuten</em></li>\n");
 			};
