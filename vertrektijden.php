@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0;">
 <style type="text/css">
 body {
-	padding: 1em;
+	padding:.5em 1em;
 	font:bold 100%/1.3 Arial, Helvetica, sans-serif;
 	background-color: #fff;
 	color:#333;
@@ -15,19 +15,19 @@ body {
 }
 
 .schema {
-	padding:2% 0;
+	padding:0 0 1.5em;
 }
 
 @media (min-width: 50em) {
 .schema {
-	width: 48%;
+	width: 47%;
 	float:left;
-	padding:0 2% 0 0;
+	padding:0 3% 0 0;
 }
 }
 
 h1, h2 {
-	font:bold 120%/1.3 Arial, Helvetica, sans-serif;
+	font:bold 110%/1.3 Arial, Helvetica, sans-serif;
 	text-transform:uppercase;
 	letter-spacing:.5px;
 }
@@ -41,7 +41,7 @@ h2 {
 	font-weight:bold;
 	display:inline-block;
 	margin:0 1em;
-	font-size:1em;
+	font-size:.8em;
 }
 ul {
 	list-style-type:none;
@@ -54,7 +54,6 @@ li {
 	color:#fff;
 	padding:4px;
 	margin-bottom:1px;
-	width:100%;
 	clear:both;
 	overflow:auto;
 }
@@ -84,11 +83,7 @@ li strong {
 <title>Komt de tram al? Of de bus?</title>
 </head>
 <body>
-<?php 
-// Haal huidige datum en tijd op
-$nu2 = date('H:i');
-echo("<div class=\"hoelaat\"><em>Het is nu " . $nu2 . " uur</em></div>\n");
-?>
+
 <div class="schema">
 <?php	
 // In principe hoef je dit script niet te veranderen!
