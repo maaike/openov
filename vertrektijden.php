@@ -5,10 +5,9 @@
 <style type="text/css">
 body {
 	padding: 1em;
-	font-family: Georgia, Times, serif;
+	font:bold 100%/1.3 Arial, Helvetica, sans-serif;
 	background-color: #fff;
 	color:#333;
-	font-size:1em;
 }
 
 .hoelaat {
@@ -27,7 +26,7 @@ body {
 }
 }
 
-h1 {
+h1, h2 {
 	font:bold 120%/1.3 Arial, Helvetica, sans-serif;
 	text-transform:uppercase;
 	letter-spacing:.5px;
@@ -39,18 +38,48 @@ h1 em {
 }
 
 h2 {
-	font-size:150%;
-	font-weight:normal;
+	font-weight:bold;
+	display:inline-block;
+	margin:0 1em;
+	font-size:1em;
+}
+ul {
+	list-style-type:none;
+	padding:0;
+	margin:0;
 }
 
-h2 strong {
-	font-weight:normal;
-	background-color:#FF3;
+li {
+	background-color:#0C3;
+	color:#fff;
+	padding:4px;
+	margin-bottom:1px;
+	width:100%;
+	clear:both;
+	overflow:auto;
 }
 
-.bijzaak {
-	color:#999;
+li.telaat {
+	background-color:#F00;
 }
+
+li.bijnatelaat {
+	background-color:#F60;
+}
+
+li span {
+	background-color:#000;
+	padding:2px 6px;
+	display:inline-block;
+}
+
+li strong {
+	display:inline-block;
+	float:right;
+	padding:2px 6px;
+}
+
+
 </style>
 <title>Komt de tram al? Of de bus?</title>
 </head>
@@ -103,7 +132,7 @@ function ophalen($perron) {
 
 
 function toonZe($alleinfo, $richting) {
-	echo("<h1>Halte " . $alleinfo['Stop']['TimingPointName'] . " <em>" . $richting . "</em></h1>");
+	echo("<h1>Halte " . $alleinfo['Stop']['TimingPointName'] . " <em>" . $richting . "</em></h1><ul>");
 	$allevoertuigen = $alleinfo["Passes"];
 	// De array opnieuw sorteren op ExpectedArrivalTime
 	$tijdstippen = array();
@@ -123,11 +152,11 @@ function toonZe($alleinfo, $richting) {
 		// Toon alle voertuigen die binnen 3 kwartier komen
 		if($verschil <= 45) {
 			if ($verschil == 0) {
-			echo("<li>Lijn " .$row[LinePublicNumber] . " naar " . $row[DestinationName50] . " komt <strong>NU!</strong></li>");
+			echo("<li class=\"telaat\"><span>" .$row[LinePublicNumber] . "</span><h2>" . $row[DestinationName50] . "</h2><strong>NU!</strong></li>");
 			} else if ($verschil == 1) {
-			echo("<li>Lijn " .$row[LinePublicNumber] . " naar " . $row[DestinationName50] . " komt over ongeveer 1 minuut. Rennen!</em></li>\n");
+			echo("<li class=\"bijnatelaat\"><span>" .$row[LinePublicNumber] . "</span><h2>" . $row[DestinationName50] . "</h2><strong>1</strong></li>\n");
 			} else {
-				echo("<li>Lijn " .$row[LinePublicNumber] . " naar " . $row[DestinationName50] . " komt over " . $verschil . "</strong> minuten</em></li>\n");
+				echo("<li><span>" .$row[LinePublicNumber] . "</span><h2>" . $row[DestinationName50] . "</h2><strong>" . $verschil . "</strong></li>\n");
 			};
 		};
 };
