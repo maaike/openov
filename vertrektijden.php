@@ -151,7 +151,7 @@ function toonZe($alleinfo, $richting) {
 			} else if ($verschil == 1) {
 			echo("<li class=\"bijnatelaat\"><span>" .$row[LinePublicNumber] . "</span><h2>" . $row[DestinationName50] . "</h2><strong>1</strong></li>\n");
 			} else {
-				echo("<li><span>" .$row[LinePublicNumber] . "</span><h2>" . $row[DestinationName50] . "</h2><strong>" . $verschil . "</strong></li>\n");
+				echo("<li><span>" .$row[LinePublicNumber] . "</span><h2>" . $row[DestinationName50] . "<h2>" . $row[SideCode] . "</h2><strong>" . $verschil . "</strong></li>\n");
 			};
 		};
 };
