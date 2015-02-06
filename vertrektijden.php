@@ -91,6 +91,10 @@ li strong {
 // Plak de haltenummers als volgt aan de url(inclusief het vraagteken):?quay1=32002649&quay2=32002650
 // Pompiedom!
 
+if( ! ini_get('date.timezone') ) {
+    date_default_timezone_set('Europe/Amsterdam');
+}
+
 $quay1 = htmlspecialchars($_GET["quay1"]);
 $quay2 = htmlspecialchars($_GET["quay2"]);
 // Als je niks invult pakken we halte Oostinje in Den Haag
